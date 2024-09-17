@@ -10,8 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include <stdio.h>
+#include "../libft.h";
 
 char	*find_out(char *str, char *to_find, size_t i, size_t n)
 {

@@ -10,16 +10,14 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-
-
-#include <unistd.h>
+#include "../libft.h";
 
 void	ft_putchar(char str)
 {
 	write(1, &str, 1);
 }
 
-int	ft_atoi(char *num)
+int	ft_atoi(const char *nptr)
 {
 	int	i;
 	int	contminus;
@@ -28,17 +26,17 @@ int	ft_atoi(char *num)
 	i = 0;
 	nbr = 0;
 	contminus = 0;
-	while ((num[i] >= 9 && num[i] <= 13) || num[i] == 32)
+	while ((nptr[i] >= 9 && nptr[i] <= 13) || nptr[i] == 32)
 		i++;
-	while (num[i] == '-' || num[i] == '+')
+	while (nptr[i] == '-' || nptr[i] == '+')
 	{
-		if (num[i] == '-')
+		if (nptr[i] == '-')
 			contminus += 1;
 		i++;
 	}
-	while (num[i] >= '0' && num[i] <= '9')
+	while (nptr[i] >= '0' && nptr[i] <= '9')
 	{
-		nbr = (nbr * 10) + (num[i] - '0');
+		nbr = (nbr * 10) + (nptr[i] - '0');
 		i++;
 	}
 	if (!contminus % 2 == 0)
