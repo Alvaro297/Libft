@@ -13,6 +13,13 @@
 #ifndef LIBFT_H
 # define LIBFT_H
 
+//ESTRUCTURA//
+typedef struct	s_list
+{
+	void 			*content;
+	struct s_list	*next;
+}					t_list;
+
 //LIBS//
 # include <string.h>
 # include <stdlib.h>
@@ -34,7 +41,13 @@ int		ft_isdigit(int c);
 int		ft_isascii(int c);
 int		ft_isalpha(int c);
 int		ft_isalnum(int c);
-void    *ft_memset(void* ptr, int value, size_t num);
-void bzero(void *s, size_t n);
+void	*ft_memset(void* ptr, int value, size_t num);
+void	bzero(void *s, size_t n);
+void	*memcpy(void *dest, const void *src, size_t n);
+
+//*****//
+
+//BONUS//
+t_list *ft_lstnew(void *content);
 //*****//
 #endif
