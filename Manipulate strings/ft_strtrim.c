@@ -1,28 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alvamart <alvamart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/18 13:44:19 by alvamart          #+#    #+#             */
-/*   Updated: 2024/09/19 12:07:54 by alvamart         ###   ########.fr       */
+/*   Created: 2024/09/19 12:34:30 by alvamart          #+#    #+#             */
+/*   Updated: 2024/09/19 12:34:51 by alvamart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
 
-void	*ft_memchr(const void *s, int c, size_t n)
+char	*ft_strtrim(char const *s1, char const *set)
 {
-	size_t				i;
-	const unsigned char	*src;
 
-	src = (const unsigned char *) s;
-	i = 0;
-	while (i < n)
-	{
-		if (src[i] == c)
-			return ((void *)src[i]);
-	}
-	return (NULL);
 }

@@ -10,36 +10,37 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft.h";
-
-void	ft_putchar(char str)
-{
-	write(1, &str, 1);
-}
+#include "../libft.h"
 
 int	ft_atoi(const char *nptr)
 {
 	int	i;
-	int	contminus;
+	int sign;
 	int	nbr;
 
 	i = 0;
 	nbr = 0;
-	contminus = 0;
+	sign = 1;
 	while ((nptr[i] >= 9 && nptr[i] <= 13) || nptr[i] == 32)
 		i++;
-	while (nptr[i] == '-' || nptr[i] == '+')
+	if (nptr[i] == '-' || nptr[i] == '+')
 	{
 		if (nptr[i] == '-')
-			contminus += 1;
+			sign = -1;
 		i++;
 	}
+	if (nptr[i] >= '0' && nptr[i] <= '9')
+		return (0);
 	while (nptr[i] >= '0' && nptr[i] <= '9')
 	{
 		nbr = (nbr * 10) + (nptr[i] - '0');
 		i++;
 	}
-	if (!contminus % 2 == 0)
-		nbr *= -1;
-	return (nbr);
+	return (nbr * sign);
 }
+
+static void	ft_putchar(char str)
+{
+	write(1, &str, 1);
+}
+

@@ -13,25 +13,24 @@
 #ifndef LIBFT_H
 # define LIBFT_H
 
-//ESTRUCTURA//
-typedef struct	s_list
-{
-	void 			*content;
-	struct s_list	*next;
-}					t_list;
-
 //LIBS//
 # include <string.h>
 # include <stdlib.h>
 # include <unistd.h>
 # include <stdio.h>
 
+//ESTRUCTURA//
+typedef struct s_list
+{
+	void			*content;
+	struct s_list	*next;
+}					t_list;
 //FUNCTIONS//
 //Manipulate strings//
 char	*ft_strchr(const char *s, int c);
 char	*ft_strjoin(char const *s1, char const *s2);
 size_t	ft_strlcat(char *dst, const char *src, size_t size);
-unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size);
+size_t	ft_strlcpy(char *dest, char *src, size_t size);
 size_t	ft_strlen(const char *str);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 char	*strnstr(const char *s1, const char *s2, size_t n);
@@ -48,16 +47,18 @@ int		ft_isalnum(int c);
 //*****//
 //Manipulate memory//
 void	ft_bzero(void *s, size_t n);
+void	*calloc(size_t num, size_t size);
 void	*ft_memchr(const void *s, int c, size_t n);
-int memcmp(const void *s1, const void *s2, size_t n);
+int		memcmp(const void *s1, const void *s2, size_t n);
 void	*ft_memcpy(void *dest, const void *src, size_t n);
 void	*ft_memmove(void *dest, const void *src, size_t n);
-void	*ft_memset(void* ptr, int value, size_t num);
+void	*ft_memset(void *ptr, int value, size_t num);
+char	*strdup(const char *s);
 //******//
 
 //*****//
 
 //BONUS//
-t_list *ft_lstnew(void *content);
+t_list	*ft_lstnew(void *content);
 //*****//
 #endif
