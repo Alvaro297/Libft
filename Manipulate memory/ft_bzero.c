@@ -6,7 +6,7 @@
 /*   By: alvamart <alvamart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/17 13:57:14 by alvamart          #+#    #+#             */
-/*   Updated: 2024/09/17 14:04:58 by alvamart         ###   ########.fr       */
+/*   Updated: 2024/09/23 13:32:02 by alvamart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,9 @@
 
 void	bzero(void *s, size_t len)
 {
-	size_t				i;
 	unsigned char	*str;
+	size_t			i;
+
 
 	i = 0;
 	str = (unsigned char *) s;

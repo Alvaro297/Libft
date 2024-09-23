@@ -6,7 +6,7 @@
 /*   By: alvamart <alvamart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 12:34:30 by alvamart          #+#    #+#             */
-/*   Updated: 2024/09/19 12:34:51 by alvamart         ###   ########.fr       */
+/*   Updated: 2024/09/23 12:59:09 by alvamart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,16 +25,9 @@ char	*ft_strtrim(char const *s1, char const *set)
 	end = ft_strlen(s1) - 1;
 	start = 0;
 	while (s1[start] && ft_strchr(set, s1[start]))
-		++start;
+		start++;
 	while (s1[end] && ft_strchr(set, s1[end]))
-		--end;
-	trimmed = ft_substr(s1, start, end - start + 1);
+		end--;
+	trimmed =  ft_substr(s1, start, end - start + 1);
 	return (trimmed);
-}
-
-int	main()
-{
-	char	str[] = "ababaaaMy name is Simonbbaaabbad";
-	char	str1[] = "ab";
-	ft_putendl_fd(ft_strtrim(str, str1), 1);
 }

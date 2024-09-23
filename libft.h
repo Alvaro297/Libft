@@ -27,6 +27,7 @@ typedef struct s_list
 }					t_list;
 //FUNCTIONS//
 //Manipulate strings//
+char **ft_split(char const *s, char c);
 char	*ft_strchr(const char *s, int c);
 char	*ft_strjoin(char const *s1, char const *s2);
 size_t	ft_strlcat(char *dst, const char *src, size_t size);
@@ -45,6 +46,10 @@ int		ft_isascii(int c);
 int		ft_isalpha(int c);
 int		ft_isalnum(int c);
 //*****//
+//Manipulate numbers//
+char	*ft_itoa(int n);
+int	ft_atoi(const char *nptr);
+//******//
 //Manipulate memory//
 void	ft_bzero(void *s, size_t n);
 void	*calloc(size_t num, size_t size);
