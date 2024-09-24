@@ -12,9 +12,9 @@
 
 #include <unistd.h>
 
-int	ft_strncmp(const char *s1,const char *s2, size_t n)
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	size_t	i;
+	size_t			i;
 	unsigned char	*ptr1;
 	unsigned char	*ptr2;
 

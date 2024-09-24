@@ -6,13 +6,13 @@
 /*   By: alvamart <alvamart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 12:37:28 by alvamart          #+#    #+#             */
-/*   Updated: 2024/09/23 14:10:00 by alvamart         ###   ########.fr       */
+/*   Updated: 2024/09/24 12:34:19 by alvamart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
 
-static int	ft_count_words(char const *s, char c)
+static int	ft_countwords(char const *s, char c)
 {
 	int	i;
 	int	count;
@@ -26,16 +26,13 @@ static int	ft_count_words(char const *s, char c)
 		if (s[i])
 			count++;
 		while (s[i] != '\0' && s[i] != c)
-		{
 			i++;
-		}
 	}
-	return (count++);
+	return (count);
 }
 
-static char	**ft_split2(char **dest,char const *s, char c)
+static char	**ft_split2(char **dest, char const *s, char c, int lenght)
 {
-	int		lenght;
 	int		i;
 	char	*start;
 
@@ -43,6 +40,8 @@ static char	**ft_split2(char **dest,char const *s, char c)
 	while (*s)
 	{
 		lenght = 0;
+		while (*s == c)
+			s++;
 		start = s;
 		while (*s && *s != c)
 		{
@@ -53,6 +52,7 @@ static char	**ft_split2(char **dest,char const *s, char c)
 		if (!dest[i])
 		{
 			ft_free_memory(dest, i);
+			return (NULL);
 		}
 		i++;
 	}
@@ -64,8 +64,8 @@ static void	ft_free_memory(char **dest, int i)
 {
 	while (i >= 0)
 	{
-		free(*dest[i]);
 		i--;
+		free(dest[i]);
 	}
 	free(dest);
 }
@@ -76,6 +76,6 @@ char	**ft_split(char const *s, char c)
 
 	if (!s)
 		return (NULL);
-	dest = (char **)malloc((ft_count_words(s, c) + 1) * sizeof(char *));
-	return (ft_split2(dest, s, c));
+	dest = (char **)malloc((ft_countwords(s, c) + 1) * sizeof(char *));
+	return (ft_split2(dest, s, c, 0));
 }

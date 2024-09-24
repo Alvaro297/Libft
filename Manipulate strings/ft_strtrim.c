@@ -6,7 +6,7 @@
 /*   By: alvamart <alvamart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 12:34:30 by alvamart          #+#    #+#             */
-/*   Updated: 2024/09/23 12:59:09 by alvamart         ###   ########.fr       */
+/*   Updated: 2024/09/24 12:31:37 by alvamart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,6 @@ char	*ft_strtrim(char const *s1, char const *set)
 		start++;
 	while (s1[end] && ft_strchr(set, s1[end]))
 		end--;
-	trimmed =  ft_substr(s1, start, end - start + 1);
+	trimmed = ft_substr(s1, start, end - start + 1);
 	return (trimmed);
 }
