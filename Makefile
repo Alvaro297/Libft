@@ -1,3 +1,4 @@
+#Variables
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 NAME = libft.a
@@ -14,4 +15,21 @@ RM = rm -f
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	$(CC) $(CFLAGS) -o $(NAME) $(OBJ)
+	ar rcs $(NAME) $(OBJ)
+
+
+#La linea %.o: %.c significa que para cada archivo .o necesita un archivo .c
+#El $< representa el archivo fuente y el $@ representa el archivo objetivo y el -c indica a gcc que solo compile y no enlaze los .o
+%.o: %.c
+	$(CC) $(CFLAGS) -c $< -o $@
+#Eliminamos los archivos .o generados
+clean:
+	$(RM) $(OBJ)
+#Llama a clean y tambien eliminamos la libreria libft.a
+fclean: clean
+	$(RM) $(NAME)
+#Para tambien compilar los archivos bonus
+bonus: $(OBJ) $(BONUSOBJ)
+	ar rcs $(NAME) $(OBJ) $(BONUSOBJ)
+#Elimina todo y luego lo recompila todo de nuevo
+re: fclean all
